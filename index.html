@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 200224</title>
+</head>
+
+<body>
+    <div id="app">
+        {{ number + number2 }}
+
+        <h2> exercicio2 {{ hello }}</h2>
+
+        <h1> ex3: {{ n3**3 }} {{ n5**3 }} {{ n10**3 }}</h1>
+
+        <h1> ex4: {{hora}} horas são {{ hora * 60 }} minutos</h1>
+
+        <input v-model="hora" type="text" name="" id="">
+
+        <h1> ex4: {{minutos}} minutos são {{ minutos*60 }} segundos</h1>
+
+        <h1>ex5:</h1>
+        <input type="number" v-model="n1">
+
+        <span v-if="n1>n2"> > </span>
+        <span v-else-if="n2>n1"> &lt </span>
+        <span v-else> = </span>
+
+        <input type="number" v-model="n2">
+
+        <h1>ex:7, escreva o nome</h1>
+        <input v-model="nome" type="text" name="" id="">
+        <h1>olaaa {{nome}}</h1>
+
+        <h1>ex:8</h1>
+        <input v-model="nome2" type="text" name="" id="">
+        <span v-if="nome2 == 'marco' || nome2 == 'antonio' "> olaaa professor {{nome2}} </span>
+        <span v-else> </span>
+
+        <h1>ex:9</h1>
+        <h1>{{ sumArray(n.array) }}</h1>
+
+        <h1>ex:10</h1>
+        <input v-model="nn" type="number" name="" id="">
+        <h1>{{ somaN(nn) }}</h1>
+
+        <h1>ex:11</h1>
+        <input v-model="nnn" type="number" name="" id="">
+        <h1>{{ somaMultiplos(nnn) }}</h1>
+
+        <h2>ex:12</h2>
+        <input v-model="nnnn" type="number" name="" id="">
+
+
+
+
+
+
+
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    number: 2,
+                    number2: 2,
+                    hello: "hello world",
+                    n3: 3,
+                    n5: 5,
+                    n10: 10,
+                    hora: 7,
+                    minutos: 56,
+                    n1: 0,
+                    n2: 0,
+                    nome: "edu",
+                    nome2: "",
+                    n: { array: [1, 2, 3] },
+                    nn: 7,
+                    nnn:10
+                }
+            },
+            methods: {
+                sumArray(array) {
+                    var sum = 0;
+                    for (let i = 0; i < array.length; i++) {
+                        sum += array[i]
+                    }
+                    return sum;
+                },
+                somaN(n) {
+                var soma = 0;
+                for (let i = 1; i <= n; i++) {
+                    soma += i
+                }
+                return soma
+            },
+                somaMultiplos(n) {
+                var soma = 0;
+                for (let i = 1; i <= n; i++) {
+                    if (i % 3 == 0 || i % 5 == 0){
+                        soma += i
+                    }
+                }
+                return soma
+            },
+            jogo(n){
+                
+            }
+            }
+
+        }
+        )
+        app.mount("#app")
+
+    </script>
+</body>
+
+</html>
