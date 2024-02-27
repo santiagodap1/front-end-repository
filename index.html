@@ -52,12 +52,9 @@
         <h1>{{ somaMultiplos(nnn) }}</h1>
 
         <h2>ex:12</h2>
-        <input v-model="nnnn" type="number" name="" id="">
-
-
-
-
-
+        
+        <input v-model="jogo" type="number" name="" id="">
+        <h1> {{ jogoAdinvinhacao(jogo, guess) }} </h1>
 
 
     </div>
@@ -80,7 +77,11 @@
                     nome2: "",
                     n: { array: [1, 2, 3] },
                     nn: 7,
-                    nnn:10
+                    nnn:10,
+                    jogo : 9,
+                    guess : Math.floor(Math.random() * 10),
+                    tentativas : 0,
+                    tentativasArray : []
                 }
             },
             methods: {
@@ -107,9 +108,40 @@
                 }
                 return soma
             },
-            jogo(n){
-                
+            jogoAdinvinhacao(n, guess){
+                this.tentativasArray.push(n) 
+                for (let i = 0; i < this.tentativasArray; i++){
+                    if ( this.tentativasArray[i] == n ){
+                        this.tentativas++
+                    }
+                }
+                if (n > guess){
+                    return "o numero inserido é muito grande"
+                }
+                else if (n < guess){
+                    return "o numero inserido é muito pequeno"
+                }
+                else{
+                    return "foram necessarias " + this.tentativas + " tentativas"
+                }
             }
+            // jogoAdinvinhacao(n, guess, tentativas, tentativasArray){
+            //     tentativasArray.push(n) 
+            //     for (let i = 0; i < tentativasArray; i++){
+            //         if ( tentativasArray[i] == n ){
+            //             tentativas++
+            //         }
+            //     }
+            //     if (n > guess){
+            //         return "o numero inserido é muito grande"
+            //     }
+            //     else if (n < guess){
+            //         return "o numero inserido é muito pequeno"
+            //     }
+            //     else{
+            //         return "foram necessarias " + tentativas + " tentativas"
+            //     }
+            // }
             }
 
         }
